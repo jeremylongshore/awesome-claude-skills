@@ -444,6 +444,33 @@ A: For skills from git repositories, pull the latest changes. For manually insta
 
 </details>
 
+## Skill Quality Standards
+
+High-quality skills are easier to discover, more efficient with tokens, and more reliable in production. The guidelines below synthesize the [AgentSkills.io open specification](https://agentskills.io) and [Anthropic's best practices](https://platform.claude.com/docs/en/skills/best-practices) into an actionable checklist.
+
+### Quality Checklist
+
+- [ ] **Description**: Written in third person, states _what_ the skill does and _when_ to use it (e.g., "Generates PDF reports when the user requests document exports")
+- [ ] **Progressive disclosure**: Three layers — frontmatter (~100 tokens), full SKILL.md (<5k tokens), bundled resources (loaded on demand)
+- [ ] **Under 500 lines**: SKILL.md stays concise; move large reference material into `resources/`
+- [ ] **No absolute paths**: Use relative paths or environment variables so the skill works on any machine
+- [ ] **Scoped tools**: Only request the tool permissions the skill actually needs (least privilege)
+
+### Common Anti-Patterns
+
+| Anti-Pattern | Why It Hurts | Fix |
+|---|---|---|
+| Vague description ("A helpful skill") | Claude cannot match the skill to the right task | Be specific: what it does, when to use it |
+| Monolithic SKILL.md (>1k lines) | Wastes context window even when only metadata is needed | Split into frontmatter + instructions + resources |
+| Hardcoded Windows/macOS paths | Breaks portability across operating systems | Use relative paths or `$HOME` / `~` |
+| First/second person instructions ("You should…") | Inconsistent with Claude's own phrasing conventions | Write in third person or imperative mood |
+
+### Reference Links
+
+- [AgentSkills.io Specification](https://agentskills.io) — Canonical open standard for portable agent skills
+- [Anthropic Best Practices](https://platform.claude.com/docs/en/skills/best-practices) — Official guidance on skill design and testing
+- [anthropics/skills](https://github.com/anthropics/skills) — Reference implementations of official skills
+
 ## 🤝 Contributing
 
 Contributions welcome! See [contribution guidelines](CONTRIBUTING.md) for details. To add a skill or resource: fork, add to appropriate section, submit PR.
