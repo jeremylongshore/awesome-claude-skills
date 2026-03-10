@@ -109,6 +109,12 @@ Skills for working with complex file formats:
   - [Blog post about its development](https://blog.fsck.com/2025/10/23/naming-claude-plugins/)
   - Install from `superpowers-marketplace` plugin
 
+- **[claude-code-plugins](https://github.com/jeremylongshore/claude-code-plugins)** - Open-source collection of 340+ plugins and 1,800+ skills across 29 categories including DevOps, security, AI/ML, crypto, and SaaS integrations
+  - Searchable web marketplace at [tonsofskills.com](https://tonsofskills.com)
+  - CLI installer: `ccpi` ([npm](https://www.npmjs.com/package/@intentsolutionsio/ccpi))
+  - Includes 116 custom agents and CI-validated plugin quality checks
+  - Installation: `/plugin marketplace add jeremylongshore/claude-code-plugins`
+
 
 ### Individual Skills
 
